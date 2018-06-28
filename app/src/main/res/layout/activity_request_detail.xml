@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp" >
+
+    <TextView
+        android:id="@+id/detail_startAddr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/detail_arriveAddr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_startAddr"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/detail_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_arriveAddr"
+        android:text="TextView"/>
+
+    <TextView
+        android:id="@+id/detail_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_product"
+        android:text="TextView"/>
+
+    <TextView
+        android:id="@+id/detail_howMany"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_box"
+        android:text="TextView"/>
+
+    <TextView
+        android:id="@+id/detail_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_howMany"
+        android:text="TextView"/>
+
+    <TextView
+        android:id="@+id/detail_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_weight"
+        android:text="TextView"/>
+
+    <TextView
+        android:id="@+id/detail_memo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_price"
+        android:text="TextView"/>
+
+    <GridView
+        android:id="@+id/detail_image"
+        android:layout_width="wrap_content"
+        android:layout_height="326dp"
+        android:layout_below="@id/detail_memo"
+        android:layout_marginTop="20dp"></GridView>
+
+</RelativeLayout>

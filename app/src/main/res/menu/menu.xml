@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_bottom_navigation_menu1"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:icon="@drawable/plus_big"
+        android:title="의뢰등록" />
+    <item
+        android:id="@+id/action_bottom_navigation_menu2"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="홈" />
+    <item
+        android:id="@+id/action_bottom_navigation_menu3"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:icon="@drawable/person"
+        android:title="내정보" />
+
+</menu>
