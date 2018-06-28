@@ -47,7 +47,6 @@ public class RequestList {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            Log.d("onResponse", "response");
                             JSONObject wrapObject = new JSONObject(response);
                             JSONArray jsonArray = new JSONArray(wrapObject.getString("list"));
                             reqList = new ArrayList<deliverRequest>();
@@ -55,7 +54,6 @@ public class RequestList {
                                 JSONObject dataJsonObject = jsonArray.getJSONObject(i);
                                 int customerNo = Integer.parseInt(dataJsonObject.getString("customerNo"));
                                 String startAddr = dataJsonObject.getString("startAddr");
-                                Log.d("##reqRendering, inside", startAddr);
                                 String arriveAddr = dataJsonObject.getString("arriveAddr");
                                 String product = dataJsonObject.getString("product");
                                 String box = dataJsonObject.getString("box");
@@ -84,7 +82,6 @@ public class RequestList {
                                 dRequest.setThumbnailImageUrl(ThumbnailUrl);
                                 reqList.add(dRequest);
                             }
-                            Log.d("inside@@", reqList.toString());
                            setReqList(reqList);
                            RequestAdapter reqAdapter = new RequestAdapter(ctx, R.layout.request, reqList);
                            reqAdapter.notifyDataSetChanged();
