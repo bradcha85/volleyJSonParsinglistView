@@ -18,13 +18,13 @@ import java.util.Locale;
 
 public class RequestImageAdpater extends BaseAdapter{
 
-    LayoutInflater inflater;
-    Context context;
-    int layout;
-    ArrayList<String> imageList;
+    private LayoutInflater inflater;
+    private Context context;
+    private int layout;
+    private ArrayList<String> imageList;
     private ImageLoader mImageLoader;
-   // private String imagePath = "http://18.205.185.138:8080/request/productOriginalImage/";
-    private String imagePath = "http://localhost:8080/request/productOriginalImage/";
+    private String imagePath = "http://18.205.185.138:8080/request/productOriginalImage/";
+    //  private String imagePath = "http://localhost:8080/request/productOriginalImage/";
 
 
     public RequestImageAdpater(Context context, int layout, ArrayList<String> imageList){
