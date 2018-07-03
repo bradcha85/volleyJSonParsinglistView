@@ -40,6 +40,7 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -52,7 +53,11 @@ public class MainActivity extends AppCompatActivity {
     private RequestQueue mRequestQueue;
     private Context context = MainActivity.this;
     private SwipeRefreshLayout mSwipeRefresh;
-    private String url = "http://18.205.185.138:8080/user/androidTest";
+    String url = "http://192.168.0.25:8080/user/androidTest";
+    private final int PICK_FROM_ALBUM=1;
+    private Uri mImageCaptureUri;
+    private Bitmap bitmap;
+
    // ListView lv = (ListView) findViewById(R.id.listView);
 
     @Override
@@ -100,9 +105,16 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
+    public void takePhoto(){
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
+        startActivityForResult(intent, PICK_FROM_ALBUM);
+    }
 
-
-
-
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        mImageCaptureUri = data.getData();
+        Log.d("sss", mImageCaptureUri.getPath().toString());
+    }
 }
