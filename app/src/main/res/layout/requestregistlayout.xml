@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -14,6 +15,7 @@
         android:layout_weight="1"
         android:ems="10"
         android:hint="출발지"
+        android:textSize="12dp"
         android:inputType="textPersonName" />
 
     <EditText
@@ -23,6 +25,7 @@
         android:layout_weight="1"
         android:ems="10"
         android:hint="도착지"
+        android:textSize="12dp"
         android:inputType="textPersonName" />
 
     <EditText
@@ -32,6 +35,7 @@
         android:layout_weight="1"
         android:ems="10"
         android:hint="물품종류"
+        android:textSize="12dp"
         android:inputType="textPersonName" />
 
     <EditText
@@ -41,6 +45,7 @@
         android:layout_weight="1"
         android:ems="10"
         android:hint="포장종류"
+        android:textSize="12dp"
         android:inputType="textPersonName" />
 
     <EditText
@@ -50,6 +55,7 @@
         android:layout_weight="1"
         android:ems="10"
         android:hint="포장수량"
+        android:textSize="12dp"
         android:inputType="textPersonName" />
 
     <EditText
@@ -59,6 +65,7 @@
         android:layout_weight="1"
         android:ems="10"
         android:hint="총중량"
+        android:textSize="12dp"
         android:inputType="textPersonName" />
 
     <EditText
@@ -68,6 +75,7 @@
         android:layout_weight="1"
         android:ems="10"
         android:hint="배송요금"
+        android:textSize="12dp"
         android:inputType="textPersonName" />
 
     <EditText
@@ -77,6 +85,7 @@
         android:layout_weight="1"
         android:ems="10"
         android:hint="요청사항"
+        android:textSize="12dp"
         android:inputType="textPersonName" />
 
     <Button
@@ -85,5 +94,18 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="배송의뢰하기" />
+
+    <Button
+        android:id="@+id/imagePreviewButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="이미지 선택" />
+
+    <ImageView
+        android:id="@+id/registerImage"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_weight="1" />
 
 </LinearLayout>

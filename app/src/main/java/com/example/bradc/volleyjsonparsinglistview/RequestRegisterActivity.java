@@ -8,7 +8,10 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.BufferedOutputStream;
@@ -24,11 +27,23 @@ public class RequestRegisterActivity extends AppCompatActivity {
 
     private Uri mImageCaptureUri;
     private String absolutePath;
+    private ImageView registerImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.requestregistlayout);
+        registerImageView = findViewById(R.id.registerImage);
+
+        Button imagePreviewButton = findViewById(R.id.imagePreviewButton);
+        imagePreviewButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                pickPhoto();
+            }
+        });
+
     }
 
     //카메라에서 사진 촬영
@@ -47,6 +62,7 @@ public class RequestRegisterActivity extends AppCompatActivity {
 //앨범에서 이미지 가져오기
     public void pickPhoto(){
         //앨범 호출
+        Log.d("pickPhoto","test");
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
         startActivityForResult(intent, PICK_FROM_ALBUM);
@@ -63,6 +79,8 @@ public class RequestRegisterActivity extends AppCompatActivity {
         switch (requestCode) {
             case PICK_FROM_ALBUM: {
                 mImageCaptureUri = data.getData();
+                registerImageView.setImageURI(mImageCaptureUri);
+
             }
 
             case PICK_FROM_CAMERA: {
