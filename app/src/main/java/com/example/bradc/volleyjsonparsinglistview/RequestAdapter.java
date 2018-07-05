@@ -15,7 +15,7 @@ import com.android.volley.Network;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
+import com.android.volley.ui.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;

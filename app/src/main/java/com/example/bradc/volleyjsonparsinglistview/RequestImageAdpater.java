@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
+import com.android.volley.ui.NetworkImageView;
 
 import java.util.ArrayList;
 import java.util.Currency;
@@ -23,7 +23,7 @@ public class RequestImageAdpater extends BaseAdapter{
     private int layout;
     private ArrayList<String> imageList;
     private ImageLoader mImageLoader;
-    private String imagePath = "http://18.205.185.138:8080/request/productOriginalImage/";
+    private String imagePath = "http://192.168.219.187:8080/request/productOriginalImage/";
     //  private String imagePath = "http://localhost:8080/request/productOriginalImage/";
 
 

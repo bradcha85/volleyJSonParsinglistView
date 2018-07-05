@@ -1,62 +1,36 @@
 package com.example.bradc.volleyjsonparsinglistview;
 
-import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Build;
-import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.LruCache;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
 
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.RequestFuture;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.error.VolleyError;
+import com.android.volley.request.SimpleMultiPartRequest;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
-
-
 
 public class MainActivity extends AppCompatActivity {
 
     private RequestQueue mRequestQueue;
     private Context context = MainActivity.this;
     private SwipeRefreshLayout mSwipeRefresh;
-    String url = "http://192.168.0.25:8080/user/androidTest";
-    private final int PICK_FROM_ALBUM=1;
-    private Uri mImageCaptureUri;
-    private Bitmap bitmap;
+    private String url = "http://192.168.219.187:8080/user/androidTest";
+
 
    // ListView lv = (ListView) findViewById(R.id.listView);
 
@@ -103,18 +77,4 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     };
-
-
-    public void takePhoto(){
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
-        startActivityForResult(intent, PICK_FROM_ALBUM);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        mImageCaptureUri = data.getData();
-        Log.d("sss", mImageCaptureUri.getPath().toString());
-    }
 }

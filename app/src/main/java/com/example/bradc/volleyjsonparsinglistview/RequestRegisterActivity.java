@@ -1,6 +1,8 @@
 package com.example.bradc.volleyjsonparsinglistview;
 
+import android.content.CursorLoader;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,6 +16,14 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.error.VolleyError;
+import com.android.volley.request.SimpleMultiPartRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -25,7 +35,9 @@ public class RequestRegisterActivity extends AppCompatActivity {
     private static final int PICK_FROM_ALBUM = 1;
     private static final int CROP_FROM_IMAGE = 2;
 
+    private String uploadUrl = "http://192.168.219.187:8080/user/androidImageUploadTest";
     private Uri mImageCaptureUri;
+    private String imagePath;
     private String absolutePath;
     private ImageView registerImageView;
 
@@ -80,7 +92,8 @@ public class RequestRegisterActivity extends AppCompatActivity {
             case PICK_FROM_ALBUM: {
                 mImageCaptureUri = data.getData();
                 registerImageView.setImageURI(mImageCaptureUri);
-
+                imagePath = getPath(mImageCaptureUri);
+                imageUpload(imagePath);
             }
 
             case PICK_FROM_CAMERA: {
@@ -156,6 +169,43 @@ public class RequestRegisterActivity extends AppCompatActivity {
 
         }
 
+    protected void imageUpload(final String imagePath){
+        SimpleMultiPartRequest smr = new SimpleMultiPartRequest(Request.Method.POST, uploadUrl,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+
+                            JSONObject jObj = new JSONObject(response);
+
+                            String message = jObj.getString("message");
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        smr.addFile("image", imagePath);
+        VolleySingleton.getInstance(this).getRequestQueue().add(smr);
+    }
+
+    //선택한 이미지 경로 얻기
+    private String getPath(Uri contentUri) {
+        String[] proj = { MediaStore.Images.Media.DATA };
+        CursorLoader loader = new CursorLoader(getApplicationContext(),    contentUri, proj, null, null, null);
+        Cursor cursor = loader.loadInBackground();
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        String result = cursor.getString(column_index);
+        cursor.close();
+        return result;
+    }
 
 
 }

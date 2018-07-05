@@ -7,8 +7,8 @@ import android.widget.ListView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.error.VolleyError;
+import com.android.volley.request.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -63,7 +63,7 @@ public class RequestList {
                                 int price = dataJsonObject.getInt("price");
                                 String memo = dataJsonObject.getString("memo");
                                 JSONArray reqFileList = dataJsonObject.getJSONArray("reqFileList");
-                                String ThumbnailUrl = "http://18.205.185.138:8080/request/productThumbnailImage/"
+                                String ThumbnailUrl = "http://192.168.219.187:8080/request/productThumbnailImage/"
                                         + reqFileList.getJSONObject(0).getString("randomFileName");
                                 ArrayList<String> imageList = new ArrayList<>();
 
