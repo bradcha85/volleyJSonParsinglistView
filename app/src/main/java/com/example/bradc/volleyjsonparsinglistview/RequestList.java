@@ -42,7 +42,7 @@ public class RequestList {
     public void requestRender(String url, ListView listView, Context context){
         final ListView lv = listView;
         final Context ctx = context;
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -82,6 +82,7 @@ public class RequestList {
                                 dRequest.setImageList(imageList);
                                 dRequest.setThumbnailImageUrl(ThumbnailUrl);
                                 reqList.add(dRequest);
+                                Log.d("list", reqList.toString());
                             }
                            setReqList(reqList);
                            RequestAdapter reqAdapter = new RequestAdapter(ctx, R.layout.request, reqList);
