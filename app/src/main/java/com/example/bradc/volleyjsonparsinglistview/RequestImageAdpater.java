@@ -23,7 +23,7 @@ public class RequestImageAdpater extends BaseAdapter{
     private int layout;
     private ArrayList<String> imageList;
     private ImageLoader mImageLoader;
-    private String imagePath = "http://192.168.219.187:8080/request/productOriginalImage/";
+    private String imagePath = "http://192.168.0.25:8080/request/productOriginalImage/";
     //  private String imagePath = "http://localhost:8080/request/productOriginalImage/";
 
 

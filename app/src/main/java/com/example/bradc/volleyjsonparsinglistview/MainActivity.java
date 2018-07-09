@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private RequestQueue mRequestQueue;
     private Context context = MainActivity.this;
     private SwipeRefreshLayout mSwipeRefresh;
-    private String url = "http://192.168.219.187:8080/user/androidTest";
+    private String url = "http://192.168.0.25:8080/user/androidTest";
 
 
    // ListView lv = (ListView) findViewById(R.id.listView);

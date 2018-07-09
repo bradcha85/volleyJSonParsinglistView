@@ -108,4 +108,11 @@
         android:layout_height="51dp"
         android:layout_weight="1" />
 
+    <Button
+        android:id="@+id/imageUpload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="이미지전송" />
+
 </LinearLayout>

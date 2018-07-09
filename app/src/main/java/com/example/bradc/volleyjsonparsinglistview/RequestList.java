@@ -63,7 +63,7 @@ public class RequestList {
                                 int price = dataJsonObject.getInt("price");
                                 String memo = dataJsonObject.getString("memo");
                                 JSONArray reqFileList = dataJsonObject.getJSONArray("reqFileList");
-                                String ThumbnailUrl = "http://192.168.219.187:8080/request/productThumbnailImage/"
+                                String ThumbnailUrl = "http://192.168.0.25:8080/request/productThumbnailImage/"
                                         + reqFileList.getJSONObject(0).getString("randomFileName");
                                 ArrayList<String> imageList = new ArrayList<>();
 
