@@ -3,97 +3,80 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="8dp" >
-
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <EditText
-        android:id="@+id/editText12"
+        android:id="@+id/startAddr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:ems="10"
         android:hint="출발지"
-        android:textSize="12dp"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textSize="12dp" />
 
     <EditText
-        android:id="@+id/editText11"
+        android:id="@+id/arriveAddr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:ems="10"
         android:hint="도착지"
-        android:textSize="12dp"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textSize="12dp" />
 
     <EditText
-        android:id="@+id/editText10"
+        android:id="@+id/product"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:ems="10"
         android:hint="물품종류"
-        android:textSize="12dp"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textSize="12dp" />
 
     <EditText
-        android:id="@+id/editText9"
-        android:layout_width="384dp"
+        android:id="@+id/box"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:ems="10"
         android:hint="포장종류"
-        android:textSize="12dp"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textSize="12dp" />
 
     <EditText
-        android:id="@+id/editText13"
+        android:id="@+id/howMany"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:ems="10"
         android:hint="포장수량"
-        android:textSize="12dp"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textSize="12dp" />
 
     <EditText
-        android:id="@+id/editText14"
+        android:id="@+id/weight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:ems="10"
         android:hint="총중량"
-        android:textSize="12dp"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textSize="12dp" />
 
     <EditText
-        android:id="@+id/editText17"
+        android:id="@+id/price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:ems="10"
         android:hint="배송요금"
-        android:textSize="12dp"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textSize="12dp" />
 
     <EditText
-        android:id="@+id/editText15"
+        android:id="@+id/memo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:ems="10"
         android:hint="요청사항"
-        android:textSize="12dp"
-        android:inputType="textPersonName" />
-
-    <Button
-        android:id="@+id/requestRegistButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="배송의뢰하기" />
+        android:inputType="textPersonName"
+        android:textSize="12dp" />
 
     <Button
         android:id="@+id/imagePreviewButton"
@@ -104,15 +87,29 @@
 
     <ImageView
         android:id="@+id/registerImage"
+        android:layout_width="370dp"
+        android:layout_height="51dp"
+        android:layout_weight="1" />
+
+    <ImageView
+        android:id="@+id/registerImage2"
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:layout_weight="1" />
 
     <Button
-        android:id="@+id/imageUpload"
+        android:id="@+id/requestRegistButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="이미지전송" />
+        android:text="배송의뢰하기" />
 
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/main_navbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/colorPrimary"
+        app:itemTextColor="#FFFFFF"
+        app:menu="@menu/menu" />
 </LinearLayout>

@@ -28,9 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     private RequestQueue mRequestQueue;
     private Context context = MainActivity.this;
-    private SwipeRefreshLayout mSwipeRefresh;
+    private SwipeRefreshLayout mSwipeRefresh;  //당겨서 새로고침하는 레이아웃
     private String url = "http://192.168.0.25:8080/user/androidTest";
-
 
    // ListView lv = (ListView) findViewById(R.id.listView);
 
@@ -48,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         mSwipeRefresh = (SwipeRefreshLayout) findViewById(R.id.swipe_layout);
         mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onRefresh() {
+            public void onRefresh() {   //아래로 당길때 리퀘스트목록이 리프레쉬된다.
                 mSwipeRefresh.setRefreshing(false);
                 ListView lv = (ListView) findViewById(R.id.listView);
                 RequestList.getInstance().requestRender(url, lv, getApplicationContext());
@@ -62,16 +61,15 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.action_bottom_navigation_menu1:
-                    // Toast.makeText(getApplicationContext(), "menu1", Toast.LENGTH_LONG).show();
+                case R.id.requestRegistration:
                     Intent intent = new Intent(context, RequestRegisterActivity.class);
                     context.startActivity(intent);
                     return true;
-                case R.id.action_bottom_navigation_menu2:
-                    Toast.makeText(getApplicationContext(), "menu2", Toast.LENGTH_LONG).show();
+                case R.id.main:
+                    Toast.makeText(getApplicationContext(), "home", Toast.LENGTH_LONG).show();
                     return true;
-                case R.id.action_bottom_navigation_menu3:
-                    Toast.makeText(getApplicationContext(), "menu3", Toast.LENGTH_LONG).show();
+                case R.id.myInformation:
+                    Toast.makeText(getApplicationContext(), "myInfo", Toast.LENGTH_LONG).show();
                     return true;
             }
             return false;
