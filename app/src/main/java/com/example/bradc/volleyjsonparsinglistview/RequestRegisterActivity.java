@@ -135,21 +135,12 @@ public class RequestRegisterActivity extends AppCompatActivity {
                     }
 
                     if (cancel) {
-                        // There was an error; don't attempt login and focus the first
-                        // form field with an error.
                         focusView.requestFocus();
                     }
-                    /*
-                    if (nullCheck(startAddr, "출발지를") == false) return
-                    if (nullCheck(arriveAddr, "도착지를") == false) return;
-                    if (nullCheck(product, "제품종류를") == false) return;
-                    if (nullCheck(box, "포장종류를") == false) return;
-                    if (nullCheck(howMany, "포장수량을") == false) return;
-                    if (nullCheck(weight, "총중량을") == false) return;
-                    if (nullCheck(price, "배송요금을") == false) return;*/
-                    if(NumericCheck("포장수량은", howMany.getText().toString()) == false) return;
-                    if(NumericCheck("총중량은", weight.getText().toString()) == false) return;
-                    if(NumericCheck("배송요금은", price.getText().toString()) == false) return;
+
+                    if(NumericCheck("포장수량은", howMany) == false) return;
+                    if(NumericCheck("총중량은", weight) == false) return;
+                    if(NumericCheck("배송요금은", price) == false) return;
                     requestUpload(filePath);
                 } else {
                     Toast.makeText(getApplicationContext(), "이미지를 선택해주세요", Toast.LENGTH_SHORT).show();
@@ -201,7 +192,6 @@ public class RequestRegisterActivity extends AppCompatActivity {
 
     //선택한 이미지 경로 얻기
     private String getPath(Uri contentUri) {
-        Log.d("@@getPath", contentUri.toString());
         String[] proj = {MediaStore.Images.Media.DATA};
         CursorLoader loader = new CursorLoader(getApplicationContext(), contentUri, proj, null, null, null);
         Cursor cursor = loader.loadInBackground();
@@ -212,27 +202,19 @@ public class RequestRegisterActivity extends AppCompatActivity {
         return result;
     }
 
-    //입력한 값의 null체크
-    public boolean nullCheck(TextView textView, String message){
-            if((TextUtils.isEmpty(textView.getText().toString()))) {
-            //Toast.makeText(RequestRegisterActivity.context, message + " 입력해주세요.", Toast.LENGTH_SHORT).show();
-            textView.setError("입력해주세요.");
-            return false;
-        }
-        return true;
-    }
-    //입력한 String 값에 숫자가 들어가있는지 체크
-    public boolean NumericCheck(String status,String value) {
+       //입력한 String 값에 숫자가 들어가있는지 체크
+    public boolean NumericCheck(String status,TextView value) {
         try {
-            Double.parseDouble(value);
+            Double.parseDouble(value.getText().toString());
             return true;
         } catch (NumberFormatException e) {
-            Toast.makeText(RequestRegisterActivity.context, status +" 숫자로 입력해주세요.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(RequestRegisterActivity.context, status +" 숫자로 입력해주세요.", Toast.LENGTH_SHORT).show();
+            value.setError("숫자로 입력해주세요.");
+            View focusView = value;
+            focusView.requestFocus();
             return false;
         }
     }
-
-
     private BottomNavigationView.OnNavigationItemSelectedListener navigationListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
